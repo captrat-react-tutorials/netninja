@@ -5,7 +5,7 @@ var ReactDOM = require('react-dom');
 var ToDoComponent = React.createClass({
   getInitialState: function(){
     return {
-      todos: ['wash up', 'eat some cheese', 'take a nap'],
+      todos: ['get up', 'wash up', 'eat some cheese', 'take a nap'],
       age: 30
     }
   },
@@ -13,7 +13,8 @@ var ToDoComponent = React.createClass({
   render: function(){
     var ager = setTimeout(function(){
       this.setState({
-        age: 35
+        age: 25,
+        todos: ['get up again', 'get cleaner', 'eat MORE cheese', 'sleep']
       });
     }.bind(this), 5000);
 
@@ -25,6 +26,7 @@ var ToDoComponent = React.createClass({
             <li> {this.state.todos[0]}</li>
             <li> {this.state.todos[1]}</li>
             <li> {this.state.todos[2]}</li>
+            <li> {this.state.todos[3]}</li>
           </ul>
       </div>
     );
