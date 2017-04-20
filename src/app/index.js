@@ -2,7 +2,7 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 
 //create Component
-var ToDoComponent = React.createClass({
+var TodoComponent = React.createClass({
   getInitialState: function(){
     return {
       todos: ['get up', 'wash up', 'eat some cheese', 'take a nap'],
@@ -13,7 +13,7 @@ var ToDoComponent = React.createClass({
     var todos = this.state.todos;
     todos = todos.map(function(item, index){
       return(
-        <li>{item}</li>
+        <TodoItem item={item} key={index} />
       );
     });
 
@@ -26,5 +26,18 @@ var ToDoComponent = React.createClass({
   }
 });
 
+// create TodoItem Component
+
+var TodoItem = React.createClass({
+  render:function(){
+    return(
+      <li>
+        <div className="todo-item">
+          <span className="item-name">{this.props.item}</span>
+        </div>
+      </li>
+    );
+  }
+})
 //put Component into HTML page
-ReactDOM.render(<ToDoComponent />, document.getElementById('todo-wrapper'));
+ReactDOM.render(<TodoComponent />, document.getElementById('todo-wrapper'));
